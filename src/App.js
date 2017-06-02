@@ -9,7 +9,11 @@ class App extends Component {
     }
   }
   render() {
-    console.log(this.state.items);
+
+    const list_to_dsplay = this.state.items.map(elem => {
+      return (<p key={elem.name}> {elem.name} , {elem.price} </p>);
+    })
+
     return (
       <div className="App">
         <AddItem
@@ -20,6 +24,7 @@ class App extends Component {
             this.setState({items});
           }}
         />
+        {list_to_dsplay}
       </div>
     );
   }
